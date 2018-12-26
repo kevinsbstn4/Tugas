@@ -1,28 +1,22 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+import React,{Component} from 'react'
+import Home from './pages/Home'
+import {Route, Switch} from "react-router-dom"
+import Book from './pages/Book'
+import Author from './pages/Author';
+import BookCreate from './pages/BookCreate';
+import AuthorCreate from './pages/AuthorCreate';
+export default class App extends Component{
+  render(){
+    return(
+      <div>
+        <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/book" exact  component={Book} />
+                <Route path="/author" exact  component={Author} />
+                <Route path="/book/create" component={BookCreate} />
+                <Route path="/author/create" component={AuthorCreate} />
+        </Switch>
       </div>
-    );
+    )
   }
 }
-
-export default App;
