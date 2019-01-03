@@ -1,0 +1,14 @@
+.mycard{
+    background-color: brown;
+    text-align: center;
+    width: 650px;
+    margin: 20px 0px 20px 300px;
+    border-radius: 10px;
+    color: white;
+}
+.mycard button {
+    background:0;
+    border-width: 2px;
+    border-color: white;
+    margin: 20px 0px 0px 0px;
+}

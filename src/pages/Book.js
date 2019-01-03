@@ -12,9 +12,8 @@ export default class Example extends React.Component {
     .then((res)=>{
       console.log(res.data.data);
       this.setState({
-        books:res.data.data
+        books : res.data.data
       })
-
       
     })
     .catch((err)=>{
@@ -30,7 +29,7 @@ export default class Example extends React.Component {
     return (
       <div>
         {this.state.books.map((value,index)=>{
-          return<Cards title={value.judul}/>
+          return<Cards title={value.id_author} id={value.judul}/>
         })}
       </div>
     );

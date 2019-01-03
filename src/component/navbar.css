@@ -1,0 +1,14 @@
+.mynav{
+    color: black;
+}
+.mynav p{
+    color: rgb(255,255,255);
+    background-color: red;
+    text-align: center;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 400px;
+    margin-left: 400px;
+
+}
