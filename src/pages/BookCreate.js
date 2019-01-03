@@ -23,8 +23,8 @@ export default class BookCreate extends Component{
 
     postBook=()=>{
         Axios.post("https://api-demo.koding.sch.id/api/book",{
-            judul:"Belajar menyimpan",
-        id_author:1,
+            judul:this.state.judul,
+            id_author:this.state.id_author
         })
         .then(()=>{
             alert("berhasil")
@@ -33,8 +33,22 @@ export default class BookCreate extends Component{
             alert('gagal')
         })
     }
-    
-
+    batal=()=>{
+        this.setState({
+            judul:""
+        })
+    }
+    handleChanges=(event)=>{
+        this.setState({
+            judul:event.target.value
+        })
+    }
+    selectHandleChanges=(event)=>{
+        console.log(event.target.value)
+        this.setState({
+            id_author: event.target.value
+        })
+    }
 
     componentDidMount(){
         this.getAuthor();
@@ -47,18 +61,18 @@ export default class BookCreate extends Component{
            <div className="bc">
            <h1>Selamat Datang</h1>
            <hr />
-               <input placeholder="Nama Buku" /> 
+               <input onChange={this.handleChanges}placeholder="Nama Buku" value={this.state.judul}/> 
               
              <p>  Nama Penulis : </p>
-               <select name="Author">
+               <select onChange={this.selectHandleChanges}>
                    {author.map((value, index)=>{
-                       return <option value={index}>{value.name}</option>
+                        return <option value={value.id}>{value.name}</option>
                    })}
                
                
                </select><br />
-               <button onClick={()=>{this.postBook()}}>Simpan</button>
-               <button onClick={()=>{this.postBook()}}>Batal</button>
+                <button onClick={()=>{this.postBook()}}>Simpan</button>
+                <button onClick={()=>{this.batal()}} >Batal</button><br/>
            </div>
            </center>
         )
